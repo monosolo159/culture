@@ -36,4 +36,51 @@ class Staffmodel extends CI_Model {
     ->get('staff_type')
     ->result_array();
 	}
+	public function mediatype(){
+		return $this->db
+		->select('*')
+    ->get('media_type')
+    ->result_array();
+	}
+
+	public function usertypeselect($id){
+		return $this->db
+		->select('*')
+		->where('staff_type_id',$id)
+		->get('staff_type')
+		->result_array();
+	}
+	public function userDelete($id){
+		$this->db->where('staff_id',$id)->delete('staff');
+	}
+
+	public function userDepartment(){
+		return $this->db
+		->select('*')
+    ->get('department')
+    ->result_array();
+	}
+
+	public function userInsert($input){
+		$this->db->insert('staff',$input);
+	}
+	public function userselect($username){
+		return $this->db
+		->select('*')
+		->where('staff_username',$username)
+		->get('staff')
+		->result_array();
+	}
+	public function userselect_id($id){
+		return $this->db
+		->select('*')
+		->where('staff_id',$id)
+		->get('staff')
+		->result_array();
+	}
+
+	public function userUpdate($input){
+		$this->db->where('staff_id',$input['staff_id'])->update('staff',$input);
+	}
+
 }

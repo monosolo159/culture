@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2018 at 09:40 AM
+-- Generation Time: Jul 05, 2018 at 05:41 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -41,6 +41,41 @@ INSERT INTO `department` (`department_id`, `department_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `media`
+--
+
+CREATE TABLE `media` (
+  `media_id` int(11) NOT NULL,
+  `media_name` int(200) NOT NULL,
+  `media_link` varchar(200) NOT NULL,
+  `media_type_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `media_type`
+--
+
+CREATE TABLE `media_type` (
+  `media_type_id` int(11) NOT NULL,
+  `media_type_name` varchar(200) NOT NULL,
+  `media_type_folder` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `media_type`
+--
+
+INSERT INTO `media_type` (`media_type_id`, `media_type_name`, `media_type_folder`) VALUES
+(1, 'ภาพ', 'pic'),
+(2, 'เอกสาร', 'document'),
+(3, 'วิดีโอ', 'video'),
+(4, 'เสียง', 'sound');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `staff`
 --
 
@@ -60,7 +95,8 @@ CREATE TABLE `staff` (
 
 INSERT INTO `staff` (`staff_id`, `staff_fullname`, `staff_reg_date`, `staff_username`, `staff_password`, `department_id`, `staff_type_id`) VALUES
 (1, 'Adam Furent', '2018-07-02 10:00:00', 'admin', 'admin', 1, 1),
-(2, 'tttt', '0000-00-00 00:00:00', 'tttt', 'tttt', 1, 4);
+(7, 'JJ', '2018-07-05 19:22:44', 'adminh', 'admin', 1, 3),
+(8, 'GGAA', '2018-07-05 19:26:31', 'ggaa', 'ggaa', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -78,10 +114,9 @@ CREATE TABLE `staff_type` (
 --
 
 INSERT INTO `staff_type` (`staff_type_id`, `staff_type_name`) VALUES
-(1, 'ผู้ดูแล'),
-(2, 'อาจารย์'),
-(3, 'เจ้าหน้าที่'),
-(4, 'นักศึกษา');
+(1, 'ผู้ดูแลระบบ'),
+(2, 'ผู้เชียวชาญ'),
+(3, 'นักศึกษา');
 
 --
 -- Indexes for dumped tables
@@ -92,6 +127,18 @@ INSERT INTO `staff_type` (`staff_type_id`, `staff_type_name`) VALUES
 --
 ALTER TABLE `department`
   ADD PRIMARY KEY (`department_id`);
+
+--
+-- Indexes for table `media`
+--
+ALTER TABLE `media`
+  ADD PRIMARY KEY (`media_id`);
+
+--
+-- Indexes for table `media_type`
+--
+ALTER TABLE `media_type`
+  ADD PRIMARY KEY (`media_type_id`);
 
 --
 -- Indexes for table `staff`
@@ -115,15 +162,25 @@ ALTER TABLE `staff_type`
 ALTER TABLE `department`
   MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `media`
+--
+ALTER TABLE `media`
+  MODIFY `media_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `media_type`
+--
+ALTER TABLE `media_type`
+  MODIFY `media_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `staff_type`
 --
 ALTER TABLE `staff_type`
-  MODIFY `staff_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `staff_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

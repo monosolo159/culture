@@ -28,6 +28,9 @@
 <script src="<?php echo base_url() ?>assets/dist/js/sidebarmenu.js"></script>
 <!--Custom JavaScript -->
 <script src="<?php echo base_url() ?>assets/dist/js/custom.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/libs/toastr/build/toastr.min.js"></script>
+
 <!--This page JavaScript -->
 <!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
 

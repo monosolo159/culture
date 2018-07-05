@@ -22,5 +22,39 @@ class Staff extends CI_Controller {
 		redirect('Home/login');
 	}
 
+	public function userDelete(){
+		$id = $this->uri->segment(4);
+		$type = $this->uri->segment(3);
+		$this->Staffmodel->userDelete($id);
+		redirect('Home/user/'.$type);
+	}
+
+	public function userInsert(){
+		$input = $this->input->post();
+		$input['staff_reg_date'] = date("Y-m-d H:i:s");
+		$query = $this->Staffmodel->userselect($input['staff_username']);
+		if(!empty($query)){
+			redirect('Home/userInsert/error');
+		}else{
+			if($input['staff_password_confirm']!=$input['staff_password']){
+				redirect('Home/userInsert/errorPassword');
+			}else{
+				unset($input['staff_password_confirm']);
+				$this->Staffmodel->userInsert($input);
+				redirect('Home/user/'.$input['staff_type_id']);
+			}
+
+
+		}
+
+	}
+
+	public function userUpdate(){
+		$input = $this->input->post();
+		$this->Staffmodel->userUpdate($input);
+		// print_r($input);
+		redirect('Home/user/'.$input['staff_type_id']);
+	}
+
 
 }

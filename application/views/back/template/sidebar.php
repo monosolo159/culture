@@ -14,7 +14,15 @@
                               <?php endforeach; ?>
                             </ul>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo site_url('Home/media'); ?>" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">สือ</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">สื่อ</span></a>
+                            <?php $mediamenu = $this->Staffmodel->mediatype(); ?>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                              <?php foreach ($mediamenu as $key => $value): ?>
+                                <li class="sidebar-item"><a href="<?php echo site_url('Home/media/'.$value['media_type_id']); ?>" class="sidebar-link"><i class="mdi mdi-file"></i><span class="hide-menu"><?php echo $value['media_type_name'] ?></span></a></li>
+                              <?php endforeach; ?>
+                            </ul>
+                        </li>
+                        <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo site_url('Home/media'); ?>" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">สือ</span></a></li> -->
 
                         <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a></li>
