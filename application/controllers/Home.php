@@ -88,10 +88,13 @@ class Home extends CI_Controller {
 	}
 
 	public function media(){
-		// $setting = $this->Settingmodel->getSetting();
+		$id = $this->uri->segment(3);
+		$medialist = $this->Staffmodel->medialist($id);
+		$mediatype = $this->Staffmodel->mediatypeselect($id);
 		$value = array(
 			'Result' => array(
-				// 'setting' => $setting
+				'medialist' => $medialist,
+				'mediatype' => $mediatype
 			),
 			'View' => 'back/media_list'
 		);
