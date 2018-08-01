@@ -41,8 +41,8 @@
                         <?php elseif ($mediatype[0]['media_type_id']==3): ?>
                         <?php elseif ($mediatype[0]['media_type_id']==4): ?>
                             <audio controls>
-                              <source src="<?php base_url('assets/uploads/sound/001.ogg') ?>" type="audio/ogg">
-                              <source src="<?php base_url('assets/uploads/sound/001.mp3') ?>" type="audio/mpeg">
+                              <source src="<?php base_url('assets/uploads/sound/002.ogg') ?>" type="audio/ogg">
+                              <source src="<?php base_url('assets/uploads/sound/'.$value['media_link']) ?>" type="audio/mpeg">
                             </audio>
                         <?php endif; ?>
 
