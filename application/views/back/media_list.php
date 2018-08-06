@@ -34,21 +34,19 @@
                   <div class="col-lg-3 col-md-6">
                     <div class="card">
                       <div class="el-card-item">
-                        <?php if ($mediatype[0]['media_type_id']==1): ?>
-                          <div class="el-card-avatar el-overlay-1"> <img src="<?php echo base_url('assets/uploads/'.$mediatype[0]['media_type_folder'].'/'.$value['media_link']);  ?>" />
-                        <?php elseif ($mediatype[0]['media_type_id']==2): ?>
+                        <?php if ($value['media_type_id']==1): ?>
+                          <div class="el-card-avatar el-overlay-1"> <img src="<?php echo base_url('assets/uploads/'.$value['media_type_folder'].'/'.$value['media_link']);  ?>" />
+                        <?php elseif ($value['media_type_id']==2): ?>
                           <div class="el-card-avatar el-overlay-1"> <img src="<?php echo base_url('assets/images/viewer_600x400.png');  ?>" />
-                        <?php elseif ($mediatype[0]['media_type_id']==3): ?>
-                        <?php elseif ($mediatype[0]['media_type_id']==4): ?>
-                            <audio controls>
-                              <source src="<?php base_url('assets/uploads/sound/002.ogg') ?>" type="audio/ogg">
-                              <source src="<?php base_url('assets/uploads/sound/'.$value['media_link']) ?>" type="audio/mpeg">
-                            </audio>
+                        <?php elseif ($value['media_type_id']==3): ?>
+
+                        <?php elseif ($value['media_type_id']==4): ?>
+                            <a href="<?php echo base_url('#');  ?>" target="_blank"><i class="fas fa-play"></i></a>
                         <?php endif; ?>
 
                           <div class="el-overlay">
                             <ul class="list-style-none el-info">
-                              <li class="el-item"><a class="btn default btn-outline image-popup-vertical-fit el-link" href="<?php echo base_url('assets/uploads/'.$mediatype[0]['media_type_folder'].'/'.$value['media_link']);  ?>"><i class="mdi mdi-magnify-plus"></i></a></li>
+                              <li class="el-item"><a class="btn default btn-outline image-popup-vertical-fit el-link" href="<?php echo base_url('assets/uploads/'.$value['media_type_folder'].'/'.$value['media_link']);  ?>"><i class="mdi mdi-magnify-plus"></i></a></li>
                               <!-- <li class="el-item"><a class="btn default btn-outline el-link" href="javascript:void(0);"><i class="mdi mdi-link"></i></a></li> -->
                             </ul>
                           </div>
