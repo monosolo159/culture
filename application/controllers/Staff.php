@@ -56,5 +56,9 @@ class Staff extends CI_Controller {
 		redirect('Home/user/'.$input['staff_type_id']);
 	}
 
+	public function searchMedia($input){
+
+	}
+
 
 }
