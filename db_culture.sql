@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2018 at 08:38 AM
+-- Generation Time: Oct 01, 2018 at 05:29 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -58,7 +58,11 @@ CREATE TABLE `media` (
 
 INSERT INTO `media` (`media_id`, `media_name`, `media_detail`, `media_link`, `media_type_id`) VALUES
 (1, 'rrrqqqq', 'GGGGHH', '36589918_1665798203488931_7833291573558247424_n.jpg', 1),
-(2, 'Doc', 'document', '001.docx', 2);
+(2, 'Doc', 'document', '001.docx', 2),
+(3, 'Sound 1', 'Sound 1', '001.mp3', 4),
+(4, 'Sound 2', 'Sound 2', '002.mp3', 4),
+(5, 'Sound 3', 'Sound 3', '003.mp3', 4),
+(6, 'Sound 4', 'Sound 4', '004.mp3', 4);
 
 -- --------------------------------------------------------
 
@@ -174,7 +178,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
-  MODIFY `media_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `media_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `media_type`
 --
