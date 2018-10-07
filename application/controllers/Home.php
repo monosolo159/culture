@@ -87,16 +87,73 @@ class Home extends CI_Controller {
 		$this->LoadPage($value);
 	}
 
-	public function media(){
+	public function userPassword(){
 		$id = $this->uri->segment(3);
-		$medialist = $this->Staffmodel->medialist($id);
-		$mediatype = $this->Staffmodel->mediatypeselect($id);
+		// $id_usertype = $this->uri->segment(3);
+		$user = $this->Staffmodel->userselect_id($id);
+		// $usertype = $this->Staffmodel->usertype();
+		// $userDepartment = $this->Staffmodel->userDepartment();
+
+		$value = array(
+			'Result' => array(
+				'user' => $user,
+				// 'userDepartment' => $userDepartment,
+				// 'usertype' => $usertype
+			),
+			'View' => 'back/user_password'
+		);
+		$this->LoadPage($value);
+	}
+
+	public function media(){
+		if($this->uri->segment(3)!=0){
+			$id = $this->uri->segment(3);
+			$medialist = $this->Mediamodel->medialist($id);
+			$mediatype = $this->Mediamodel->mediatypeselect($id);
+		}else{
+			$input = $this->input->post();
+			// print_r($input);
+			$medialist = $this->Mediamodel->medialistsearch($input['search'],$input['media_type_id']);
+			$mediatype = $this->Mediamodel->mediatypeselect($input['media_type_id']);
+		}
+		// $id = $this->uri->segment(3);
+		// $medialist = $this->Staffmodel->medialist($id);
+		$mediatypeall = $this->Mediamodel->mediatype();
+		// $mediatype = $this->Staffmodel->mediatypeselect($id);
 		$value = array(
 			'Result' => array(
 				'medialist' => $medialist,
-				'mediatype' => $mediatype
+				'mediatype' => $mediatype,
+				'mediatypeall' => $mediatypeall
 			),
 			'View' => 'back/media_list'
+		);
+		$this->LoadPage($value);
+	}
+
+	public function mediaInsert(){
+		$mediatypeall = $this->Mediamodel->mediatype();
+		$value = array(
+			'Result' => array(
+				'mediatypeall' => $mediatypeall
+			),
+			'View' => 'back/media_insert'
+		);
+		$this->LoadPage($value);
+	}
+
+	public function mediaEdit(){
+		$id = $this->uri->segment(3);
+		$media = $this->Mediamodel->medialistOne($id);
+		$mediatypeall = $this->Mediamodel->mediatype();
+
+		$value = array(
+			'Result' => array(
+				'media' => $media,
+				'mediatypeall' => $mediatypeall
+
+			),
+			'View' => 'back/media_edit'
 		);
 		$this->LoadPage($value);
 	}

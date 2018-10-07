@@ -24,7 +24,7 @@ date_default_timezone_set('Asia/Bangkok');
 |
 */
 // $config['base_url'] = 'http://indigo.project57.net/';
-// $config['base_url'] = 'http://192.168.1.4/product_detail/';
+// $config['base_url'] = 'http://culture.wichetpong.com/';
 $config['base_url'] = 'http://localhost/culture/';
 
 

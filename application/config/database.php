@@ -76,6 +76,10 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
+	// 'username' => 'codingnc_culture',
+	// 'password' => 'culture',
+	// 'database' => 'codingnc_culture',
+
 	'username' => 'root',
 	'password' => '',
 	'database' => 'db_culture',

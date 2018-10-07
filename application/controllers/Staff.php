@@ -12,11 +12,33 @@ class Staff extends CI_Controller {
 			redirect($this->agent->referrer(), 'refresh');
 		} else {
 			$_SESSION['STAFF_ID'] = $query[0]['staff_id'];
-			$_SESSION['STAFF_NAME'] = $query[0]['staff_fname'].' '.$query[0]['staff_lname'];
+			$_SESSION['STAFF_NAME'] = $query[0]['staff_fullname'];
 			$_SESSION['STAFF_TYPE'] = $query[0]['staff_type_id'];
 			redirect('Home/admin');
 		}
 	}
+
+	public function member_login(){
+		// redirect('Home/productlist');
+		$input = $this->input->post();
+		$query = $this->Staffmodel->login($input);
+		if (empty($query))
+		{
+			redirect($this->agent->referrer(), 'refresh');
+		} else {
+			$_SESSION['MEMBER_ID'] = $query[0]['staff_id'];
+			$_SESSION['MEMBER_NAME'] = $query[0]['staff_fullname'];
+			$_SESSION['MEMBER_TYPE'] = $query[0]['staff_type_id'];
+			redirect('Front');
+		}
+	}
+
+
+public function memberLogout(){
+	session_destroy();
+	redirect('Front');
+}
+
 	public function logout(){
 		session_destroy();
 		redirect('Home/login');
@@ -43,22 +65,43 @@ class Staff extends CI_Controller {
 				$this->Staffmodel->userInsert($input);
 				redirect('Home/user/'.$input['staff_type_id']);
 			}
-
-
 		}
-
 	}
 
 	public function userUpdate(){
 		$input = $this->input->post();
-		$this->Staffmodel->userUpdate($input);
-		// print_r($input);
-		redirect('Home/user/'.$input['staff_type_id']);
+		if (isset($input['staff_password'])) {
+			if ($input['staff_password']==$input['staff_password_confirm']) {
+				unset($input['staff_password_confirm']);
+				$this->Staffmodel->userUpdate($input);
+				redirect('Home/user/'.$input['staff_type_id']);
+			}else{
+				redirect('Home/userPassword/'.$input['staff_id'].'/error');
+			}
+		}else{
+			$this->Staffmodel->userUpdate($input);
+			redirect('Home/user/'.$input['staff_type_id']);
+
+		}
+	}
+	public function memberUpdate(){
+		$input = $this->input->post();
+		if (isset($input['staff_password'])) {
+			if ($input['staff_password']==$input['staff_password_confirm']) {
+				unset($input['staff_password_confirm']);
+				$this->Staffmodel->userUpdate($input);
+				redirect('Front/profilePassword/'.$input['staff_id'].'/success');
+			}else{
+				redirect('Front/profilePassword/'.$input['staff_id'].'/error');
+			}
+		}else{
+			$this->Staffmodel->userUpdate($input);
+			redirect('Front/profileEdit/'.$input['staff_id'].'/success');
+
+		}
 	}
 
-	public function searchMedia($input){
 
-	}
 
 
 }

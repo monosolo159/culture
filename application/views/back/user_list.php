@@ -55,6 +55,7 @@
                             <td>
                               <!-- <button type="button" class="btn btn-warning btn-sm">แก้ไข</button> -->
                               <a href="<?php echo site_url('Home/userEdit/'.$value['staff_id']); ?>" class="btn btn-warning btn-sm">แก้ไข</a>
+                              <a href="<?php echo site_url('Home/userPassword/'.$value['staff_id']); ?>" class="btn btn-warning btn-sm">รหัสผ่าน</a>
                               <a href="<?php echo site_url('Staff/userDelete/'.$usertype[0]['staff_type_id'].'/'.$value['staff_id']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('ยืนยันการลบ')">ลบ</a>
                             </td>
                             <!-- <td>$320,800</td> -->
