@@ -141,4 +141,15 @@ class Front extends CI_Controller {
 		$this->LoadPage($value);
 	}
 
+	public function about(){
+		// $mediatypeall = $this->Mediamodel->mediatype();
+		$value = array(
+			'Result' => array(
+				// 'mediatypeall' => $mediatypeall
+			),
+			'View' => 'front/about'
+		);
+		$this->LoadPage($value);
+	}
+
 }

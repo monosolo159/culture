@@ -21,7 +21,7 @@
 
 
   <div class="row">
-    <div class="offset-1 col-md-10" style="background: rgba(255, 255, 255, 0.5);border-radius: 10px;">
+    <div class="offset-1 col-md-10" style="background: rgba(0, 0, 0, 0.5);border-radius: 10px;">
       <div class="row">
         <div class="col-md-12" style="padding-top:1%">
           <div class="card border-primary mb-3" style="max-width: 100%;">
@@ -40,7 +40,7 @@
                 <form action="<?php echo base_url() ?>Front/media" method="post">
                 <!-- <?php echo form_open('Front/media') ?> -->
                   <div class="row">
-                    <div class="col-md-6" style="padding-top:1%;padding-left:1% ">
+                    <div class="col-md-6" style="padding-top:1%;padding-left:3% ">
                       <select name="media_type_id" class="select2 form-control" style="width: 100%; height:36px;">
                           <option value="">เลือก</option>
                           <?php foreach ($menu as $key => $value): ?>
