@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2018 at 09:59 PM
+-- Generation Time: Nov 04, 2018 at 10:34 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -69,6 +69,30 @@ CREATE TABLE `antiques_store` (
 
 INSERT INTO `antiques_store` (`antiques_store_id`, `antiques_store_name`) VALUES
 (1, 'พิพิธภัณฑ์เมืองสกลนคร');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `contact_id` int(11) NOT NULL,
+  `contact_name` varchar(200) NOT NULL,
+  `contact_detail` varchar(500) NOT NULL,
+  `contact_by_fullname` varchar(200) NOT NULL,
+  `contact_by_email` varchar(200) NOT NULL,
+  `contact_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`contact_id`, `contact_name`, `contact_detail`, `contact_by_fullname`, `contact_by_email`, `contact_date`) VALUES
+(2, 'dd', 'ddd', 'ddd', 'aaaa@xxx.xxx', '2018-11-05 10:25:00'),
+(3, 'GGG', 'GGG', 'GGG', 'wichetpong159@hotmail.com', '2018-11-05 04:32:06'),
+(4, 'GGG', 'GGG', 'GGG', 'wichetpong159@hotmail.com', '2018-11-05 04:32:37');
 
 -- --------------------------------------------------------
 
@@ -224,6 +248,12 @@ ALTER TABLE `antiques_store`
   ADD PRIMARY KEY (`antiques_store_id`);
 
 --
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`contact_id`);
+
+--
 -- Indexes for table `department`
 --
 ALTER TABLE `department`
@@ -267,6 +297,11 @@ ALTER TABLE `antiques`
 --
 ALTER TABLE `antiques_store`
   MODIFY `antiques_store_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `department`
 --

@@ -38,6 +38,19 @@ class Home extends CI_Controller {
 		$this->load->view('back/login');
 	}
 
+
+	public function contact(){
+		$contact_list = $this->Contactmodel->contact_list();
+		$value = array(
+			'Result' => array(
+				'contact_list' => $contact_list,
+				// 'usertype' => $usertype
+			),
+			'View' => 'back/contact_list'
+		);
+		$this->LoadPage($value);
+	}
+
 	public function antiques(){
 		$antiques_list = $this->Antiquesmodel->antiqueslist();
 		$value = array(

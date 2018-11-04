@@ -26,6 +26,7 @@
 
     </ul>
 </li>
+<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo site_url('Home/contact'); ?>" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">ข้อความ</span></a></li>
 
 
                         <!-- <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">สื่อ</span></a>

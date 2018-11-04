@@ -28,6 +28,16 @@ class Front extends CI_Controller {
 		redirect('Front/antiques/');
 	}
 
+
+public function contact(){
+	$value = array(
+		'Result' => array(
+		),
+		'View' => 'front/contact_insert'
+	);
+	$this->LoadPage($value);
+}
+
 	public function antiques(){
 		if($this->input->post()){
 			$antiques_list = $this->Antiquesmodel->antiqueslist_search($this->input->post());
