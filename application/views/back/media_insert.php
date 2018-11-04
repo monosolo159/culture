@@ -55,7 +55,7 @@
                                        </div>
                                    </div>
                                    <div class="form-group row">
-                                        <label class="col-sm-3 text-right control-label col-form-label">ประเภทผู้ใช้</label>
+                                        <label class="col-sm-3 text-right control-label col-form-label">ประเภทสื่อ</label>
 
                                        <div class="col-md-9">
                                            <select name="media_type_id" class="select2 form-control" style="width: 100%; height:36px;" required>
@@ -69,6 +69,7 @@
                                </div>
                                <div class="border-top">
                                    <div class="card-body">
+                                     <input type="hidden" name="antiques_id" value="<?php echo $this->uri->segment(3) ?>">
                                        <button type="submit" class="btn btn-primary">บันทึก</button>
                                    </div>
                                </div>

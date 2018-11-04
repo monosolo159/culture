@@ -24,6 +24,7 @@ class Staffmodel extends CI_Model {
     // ->or_like('member_fname',$searchword)
     // ->or_like('member_lname',$searchword)
 		->where('staff.staff_type_id',$id)
+
     ->join('staff_type','staff_type.staff_type_id = staff.staff_type_id','left')
     ->join('department','department.department_id = staff.department_id','left')
     ->get('staff')
@@ -33,6 +34,7 @@ class Staffmodel extends CI_Model {
 	public function usertype(){
 		return $this->db
 		->select('*')
+		->order_by('staff_type_order','asc')
     ->get('staff_type')
     ->result_array();
 	}

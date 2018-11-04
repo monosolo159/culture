@@ -39,7 +39,8 @@ class Media extends CI_Controller {
       echo $target_path;
       echo "There was an error uploading the file, please try again!";
     }
-		redirect('Home/media/'.$input['media_type_id']);
+		redirect('Home/media/'.$input['antiques_id']);
+		// print_r($input);
 	}
 
 	public function mediaInsertMember(){
@@ -85,9 +86,9 @@ class Media extends CI_Controller {
 
 	public function mediaDelete(){
 		$id = $this->uri->segment(4);
-		$type = $this->uri->segment(3);
+		$antiques_id = $this->uri->segment(3);
 		$this->Mediamodel->mediaDelete($id);
-		redirect('Home/media/'.$type);
+		redirect('Home/media/'.$antiques_id);
 	}
 	public function mediaDeleteMember(){
 		$id = $this->uri->segment(4);

@@ -37,18 +37,18 @@
             <div class="row">
               <div class="col-md-6">
                 <?php $menu = $this->Mediamodel->mediatype(); ?>
-                <form action="<?php echo base_url() ?>Front/media" method="post">
+                <form action="<?php echo base_url() ?>Front/antiques" method="post">
                 <!-- <?php echo form_open('Front/media') ?> -->
                   <div class="row">
-                    <div class="col-md-6" style="padding-top:1%;padding-left:3% ">
+                    <!-- <div class="col-md-6" style="padding-top:1%;padding-left:3% ">
                       <select name="media_type_id" class="select2 form-control" style="width: 100%; height:36px;">
                           <option value="">เลือก</option>
                           <?php foreach ($menu as $key => $value): ?>
                             <option value="<?php echo $value['media_type_id'] ?>"><?php echo $value['media_type_name'] ?></option>
                           <?php endforeach; ?>
                       </select>
-                    </div>
-                    <div class="col-md-6">
+                    </div> -->
+                    <div class="col-md-8">
                       <div class="input-group mb-3" style="padding-top:2%;padding-left:2% ">
                         <input type="text" name="search" class="form-control" placeholder="คำค้น" aria-label="คำค้น" aria-describedby="button-addon2">
                         <div class="input-group-append">
@@ -70,7 +70,7 @@
                       <input type="text" class="form-control" name="staff_username" placeholder="Username">
                     </div>
                     <div class="col-md-5">
-                      <input type="text" class="form-control" name="staff_password" placeholder="Password">
+                      <input type="password" class="form-control" name="staff_password" placeholder="Password">
                     </div>
                     <div class="col-md-2">
                       <input type="submit" value="เข้าสู่ระบบ" class="btn btn-default">
@@ -88,8 +88,8 @@
                       <div class="float-right"><a href="<?php echo base_url('Front/profileEdit/'.$_SESSION['MEMBER_ID']) ?>"  class="btn btn-info"> ข้อมูลส่วนตัว </a> |&nbsp</div>
                       <!-- <div class="float-right"><a href="<?php echo base_url('Front/myMedia/'.$_SESSION['MEMBER_ID']) ?>"  class="btn btn-info"> สื่อของฉัน </a> |&nbsp</div> -->
                       <div class="btn-group float-right">
-                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">สื่อของฉัน</button>
-                           &nbsp|&nbsp
+                          <!-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">สื่อของฉัน</button> -->
+                           <!-- &nbsp|&nbsp -->
                           <div class="dropdown-menu">
                             <?php foreach ($menu as $key => $value): ?>
                               <a class="dropdown-item" href="<?php echo base_url('Front/myMedia/'.$value['media_type_id']) ?>"><?php echo $value['media_type_name'] ?></a>

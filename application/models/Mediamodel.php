@@ -32,7 +32,7 @@ class Mediamodel extends CI_Model {
 		// ->or_like('shelf_name',$searchword)
 		// ->or_like('member_fname',$searchword)
 		// ->or_like('member_lname',$searchword)
-		->where('media.media_type_id',$id)
+		->where('media.antiques_id',$id)
 		->join('media_type','media_type.media_type_id = media.media_type_id','left')
 		// ->join('department','department.department_id = staff.department_id','left')
 		->get('media')

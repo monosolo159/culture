@@ -19,7 +19,7 @@
                          <label class="col-sm-3 text-right control-label col-form-label">ประเภทผู้ใช้</label>
 
                         <div class="col-md-9">
-                            <select name="staff_type_id" class="select2 form-control" style="width: 100%; height:36px;" required>
+                            <select name="staff_type_id" class="select2 form-control" style="width: 100%; height:36px;"  disabled>
                                 <option value="">เลือก</option>
                                 <?php foreach ($usertype as $key => $value): ?>
                                   <option value="<?php echo $value['staff_type_id'] ?>" <?php if($value['staff_type_id']==$user[0]['staff_type_id']){ echo 'selected'; } ?>><?php echo $value['staff_type_name'] ?></option>

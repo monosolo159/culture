@@ -15,14 +15,14 @@ class Home extends CI_Controller {
 		$this->load->view('back/template/footer');
 	}
 	public function admin(){
-		$value = array(
-			'Result' => array(
-				// 'setting' => $setting
-			),
-			'View' => 'back/body'
-		);
-		$this->LoadPage($value);
-		// print_r($_SESSION);
+		// $value = array(
+		// 	'Result' => array(
+		// 		// 'setting' => $setting
+		// 	),
+		// 	'View' => 'back/body'
+		// );
+		// $this->LoadPage($value);
+		redirect('Home/antiques');
 	}
 	function convert_time($strDate){
 		$strYear = date("Y",strtotime($strDate))+543;
@@ -37,6 +37,85 @@ class Home extends CI_Controller {
 	public function login(){
 		$this->load->view('back/login');
 	}
+
+	public function antiques(){
+		$antiques_list = $this->Antiquesmodel->antiqueslist();
+		$value = array(
+			'Result' => array(
+				'antiques_list' => $antiques_list,
+				// 'usertype' => $usertype
+			),
+			'View' => 'back/antiques_list'
+		);
+		$this->LoadPage($value);
+	}
+
+
+	public function antiques_insert(){
+		$antiques_store = $this->Antiquesmodel->antiques_store_list();
+		$value = array(
+			'Result' => array(
+				'antiques_store' => $antiques_store,
+				// 'usertype' => $usertype
+			),
+			'View' => 'back/antiques_insert'
+		);
+		$this->LoadPage($value);
+	}
+
+	public function antiques_edit(){
+		$id = $this->uri->segment(3);
+		$antiques_one = $this->Antiquesmodel->antiques_one($id);
+		$antiques_store = $this->Antiquesmodel->antiques_store_list();
+		$value = array(
+			'Result' => array(
+				'antiques_store' => $antiques_store,
+				'antiques_one' => $antiques_one
+			),
+			'View' => 'back/antiques_edit'
+		);
+		$this->LoadPage($value);
+	}
+
+	public function antiques_store(){
+		$antiques_store_list = $this->Antiquesmodel->antiques_store_list();
+		$value = array(
+			'Result' => array(
+				'antiques_store_list' => $antiques_store_list,
+				// 'usertype' => $usertype
+			),
+			'View' => 'back/antiques_store_list'
+		);
+		$this->LoadPage($value);
+	}
+
+	public function antiques_store_insert(){
+		// $antiques_list = $this->Antiquesmodel->antiqueslist();
+		$value = array(
+			'Result' => array(
+				// 'antiques_list' => $antiques_list,
+				// 'usertype' => $usertype
+			),
+			'View' => 'back/antiques_store_insert'
+		);
+		$this->LoadPage($value);
+	}
+
+	public function antiques_store_edit(){
+		$id = $this->uri->segment(3);
+		$antiques_store_one = $this->Antiquesmodel->antiques_store_select($id);
+		$value = array(
+			'Result' => array(
+				'antiques_store_one' => $antiques_store_one,
+				// 'usertype' => $usertype
+			),
+			'View' => 'back/antiques_store_edit'
+		);
+		$this->LoadPage($value);
+	}
+
+
+
 
 	public function user(){
 		$id = $this->uri->segment(3);
@@ -106,16 +185,21 @@ class Home extends CI_Controller {
 	}
 
 	public function media(){
-		if($this->uri->segment(3)!=0){
-			$id = $this->uri->segment(3);
-			$medialist = $this->Mediamodel->medialist($id);
-			$mediatype = $this->Mediamodel->mediatypeselect($id);
-		}else{
-			$input = $this->input->post();
-			// print_r($input);
-			$medialist = $this->Mediamodel->medialistsearch($input['search'],$input['media_type_id']);
-			$mediatype = $this->Mediamodel->mediatypeselect($input['media_type_id']);
-		}
+		// if($this->uri->segment(3)!=0){
+		// 	$id = $this->uri->segment(3);
+		// 	$medialist = $this->Mediamodel->medialist($id);
+		// 	$mediatype = $this->Mediamodel->mediatypeselect($id);
+		// }else{
+		// 	$input = $this->input->post();
+		// 	// print_r($input);
+		// 	$medialist = $this->Mediamodel->medialistsearch($input['search'],$input['media_type_id']);
+		// 	$mediatype = $this->Mediamodel->mediatypeselect($input['media_type_id']);
+		// }
+
+		$id = $this->uri->segment(3);
+		$medialist = $this->Mediamodel->medialist($id);
+		// $mediatype = $this->Mediamodel->mediatypeselect($id);
+
 		// $id = $this->uri->segment(3);
 		// $medialist = $this->Staffmodel->medialist($id);
 		$mediatypeall = $this->Mediamodel->mediatype();
@@ -123,7 +207,7 @@ class Home extends CI_Controller {
 		$value = array(
 			'Result' => array(
 				'medialist' => $medialist,
-				'mediatype' => $mediatype,
+				// 'mediatype' => $mediatype,
 				'mediatypeall' => $mediatypeall
 			),
 			'View' => 'back/media_list'

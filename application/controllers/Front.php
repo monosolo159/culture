@@ -25,8 +25,43 @@ class Front extends CI_Controller {
 		// 	'View' => 'front/body'
 		// );
 		// $this->LoadPage($value);
-		redirect('Front/media/1');
+		redirect('Front/antiques/');
 	}
+
+	public function antiques(){
+		if($this->input->post()){
+			$antiques_list = $this->Antiquesmodel->antiqueslist_search($this->input->post());
+		}else{
+			$antiques_list = $this->Antiquesmodel->antiqueslist();
+		}
+
+		$value = array(
+			'Result' => array(
+				'antiques_list' => $antiques_list,
+				// 'usertype' => $usertype
+			),
+			'View' => 'front/antiques_list'
+		);
+		$this->LoadPage($value);
+	}
+
+	public function antiques_detail(){
+		$id = $this->uri->segment(3);
+		$antiques_one = $this->Antiquesmodel->antiques_one($id);
+		$mediatypeall = $this->Mediamodel->mediatype();
+		$medialist = $this->Mediamodel->medialist($id);
+
+		$value = array(
+			'Result' => array(
+				'antiques_one' => $antiques_one,
+				'mediatypeall' => $mediatypeall,
+				'medialist' => $medialist
+			),
+			'View' => 'front/antiques_detail'
+		);
+		$this->LoadPage($value);
+	}
+
 
 	public function media(){
 
