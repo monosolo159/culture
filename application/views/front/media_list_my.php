@@ -42,7 +42,7 @@
                   <?php elseif ($this->uri->segment(3)==3||$this->uri->segment(3)==4||$mediatype[0]['media_type_id']==3||$mediatype[0]['media_type_id']==4): ?>
                     <div class="row">
                     <?php foreach ($medialist as $key => $value): ?>
-                      <div class="col-lg-3 col-md-6">
+                      <div class="col-lg-6 col-md-12 col-sm-12">
                         <div class="card">
                           <div class="el-card-item">
                             <div class="el-card-avatar el-overlay-1">
@@ -59,7 +59,7 @@
                                       <source src="<?php echo base_url('assets/uploads/'.$value['media_type_folder'].'/'.$value['media_link']);  ?>" type="audio/ogg">
                                         <source src="<?php echo base_url('assets/uploads/'.$value['media_type_folder'].'/'.$value['media_link']);  ?>" type="audio/mpeg">
                                           Your browser does not support the audio element.
-                                        </audio>
+                                        </audio width="100%">
                                         <a href="<?php echo base_url('Front/mediaEdit/'.$value['media_id']); ?>" class="btn btn-default">แก้ไข</a>
                                         <a class="btn btn-danger" href="JavaScript:if(confirm('ยืนยันการลบ?') == true){window.location='<?php echo site_url('Media/mediaDeleteMember/'.$value['media_type_id'].'/'.$value['media_id']); ?>';}">ลบ</a>
                                       <?php endif; ?>

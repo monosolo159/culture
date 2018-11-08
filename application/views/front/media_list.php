@@ -21,7 +21,7 @@
                                 <div class="el-overlay">
                                   <ul class="list-style-none el-info">
                                     <li class="el-item"><a class="btn default btn-outline image-popup-vertical-fit el-link" href="<?php echo base_url('assets/uploads/'.$value['media_type_folder'].'/'.$value['media_link']);  ?>"><i class="mdi mdi-magnify-plus"></i></a></li>
-                                    
+
                                     <!-- <li class="el-item"><a class="btn default btn-outline el-link" href="javascript:void(0);"><i class="mdi mdi-link"></i></a></li> -->
                                   </ul>
                                 </div>
@@ -42,7 +42,7 @@
                   <?php elseif ($this->uri->segment(3)==3||$this->uri->segment(3)==4||$mediatype[0]['media_type_id']==3||$mediatype[0]['media_type_id']==4): ?>
                     <div class="row">
                     <?php foreach ($medialist as $key => $value): ?>
-                      <div class="col-lg-3 col-md-6">
+                      <div class="col-lg-6 col-md-12 col-sm-12">
                         <div class="card">
                           <div class="el-card-item">
                             <div class="el-card-avatar el-overlay-1">
@@ -53,7 +53,7 @@
                                       Your browser does not support the video tag.
                                     </video>
                                   <?php elseif ($value['media_type_id']==4): ?>
-                                    <audio controls>
+                                    <audio controls width="100%">
                                       <source src="<?php echo base_url('assets/uploads/'.$value['media_type_folder'].'/'.$value['media_link']);  ?>" type="audio/ogg">
                                         <source src="<?php echo base_url('assets/uploads/'.$value['media_type_folder'].'/'.$value['media_link']);  ?>" type="audio/mpeg">
                                           Your browser does not support the audio element.
