@@ -1,4 +1,4 @@
-<?php if(empty($_SESSION['STAFF_ID'])||($_SESSION['STAFF_TYPE']==4)){
+<?php if(empty($_SESSION['STAFF_ID'])||($_SESSION['STAFF_TYPE']==3)){
   redirect('Home/login');
 } ?>
 <!DOCTYPE html>
