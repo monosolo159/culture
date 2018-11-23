@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2018 at 10:34 PM
+-- Generation Time: Nov 23, 2018 at 09:41 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -102,15 +102,21 @@ INSERT INTO `contact` (`contact_id`, `contact_name`, `contact_detail`, `contact_
 
 CREATE TABLE `department` (
   `department_id` int(11) NOT NULL,
-  `department_name` varchar(200) NOT NULL
+  `department_name` varchar(200) NOT NULL,
+  `department_order` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `department`
 --
 
-INSERT INTO `department` (`department_id`, `department_name`) VALUES
-(1, 'คณะวิทยาศาสตร์และเทคโนโลยี');
+INSERT INTO `department` (`department_id`, `department_name`, `department_order`) VALUES
+(1, 'คณะครุศาสตร์', 1),
+(2, 'คณะเทคโนโลยีการเกษตร', 2),
+(3, 'คณะเทคโนโลยีอุตสาหกรรม', 3),
+(4, 'คณะวิทยาการจัดการ', 4),
+(5, 'คณะมนุษยศาสตร์และสังคมศาสตร์', 5),
+(6, 'คณะวิทยาศาสตร์และเทคโนโลยี', 6);
 
 -- --------------------------------------------------------
 
@@ -187,6 +193,29 @@ INSERT INTO `media_type` (`media_type_id`, `media_type_name`, `media_type_folder
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `news_id` int(11) NOT NULL,
+  `news_date` datetime NOT NULL,
+  `staff_id` int(11) NOT NULL,
+  `news_title` varchar(500) NOT NULL,
+  `news_detail` text NOT NULL,
+  `news_pic_cover` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`news_id`, `news_date`, `staff_id`, `news_title`, `news_detail`, `news_pic_cover`) VALUES
+(3, '2018-11-23 15:32:10', 1, 'daaaaaaaaaaaaaaa', '<p>afafafa</p>\r\n', '3.jpg'),
+(4, '2018-11-23 15:32:47', 8, 'HHH', '<p>HHH</p>\r\n', '4.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `staff`
 --
 
@@ -227,8 +256,8 @@ CREATE TABLE `staff_type` (
 
 INSERT INTO `staff_type` (`staff_type_id`, `staff_type_name`, `staff_type_order`) VALUES
 (1, 'ผู้ดูแลระบบ', 1),
-(2, 'ผู้เชียวชาญ', 2),
-(3, 'นักศึกษา', 4),
+(2, 'อาจารย์ผู้สอน', 2),
+(3, 'นักศึกษา/บุคลทั่วไป', 4),
 (4, 'เจ้าหน้าที่', 3);
 
 --
@@ -272,6 +301,12 @@ ALTER TABLE `media_type`
   ADD PRIMARY KEY (`media_type_id`);
 
 --
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`news_id`);
+
+--
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
@@ -306,7 +341,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `media`
 --
@@ -317,6 +352,11 @@ ALTER TABLE `media`
 --
 ALTER TABLE `media_type`
   MODIFY `media_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `staff`
 --

@@ -7,6 +7,7 @@ class Staff extends CI_Controller {
 		// redirect('Home/productlist');
 		$input = $this->input->post();
 		$query = $this->Staffmodel->login($input);
+		print_r($query);
 		if (empty($query))
 		{
 			redirect($this->agent->referrer(), 'refresh');
@@ -14,24 +15,29 @@ class Staff extends CI_Controller {
 			$_SESSION['STAFF_ID'] = $query[0]['staff_id'];
 			$_SESSION['STAFF_NAME'] = $query[0]['staff_fullname'];
 			$_SESSION['STAFF_TYPE'] = $query[0]['staff_type_id'];
-			redirect('Home/admin');
+			if($_SESSION['STAFF_TYPE']==3){
+				redirect('Front');
+			}else if($_SESSION['STAFF_TYPE']==1||$_SESSION['STAFF_TYPE']==2||$_SESSION['STAFF_TYPE']==4){
+				redirect('Home/admin');
+			}
+
 		}
 	}
 
-	public function member_login(){
-		// redirect('Home/productlist');
-		$input = $this->input->post();
-		$query = $this->Staffmodel->login($input);
-		if (empty($query))
-		{
-			redirect($this->agent->referrer(), 'refresh');
-		} else {
-			$_SESSION['MEMBER_ID'] = $query[0]['staff_id'];
-			$_SESSION['MEMBER_NAME'] = $query[0]['staff_fullname'];
-			$_SESSION['MEMBER_TYPE'] = $query[0]['staff_type_id'];
-			redirect('Front');
-		}
-	}
+	// public function member_login(){
+	// 	// redirect('Home/productlist');
+	// 	$input = $this->input->post();
+	// 	$query = $this->Staffmodel->login($input);
+	// 	if (empty($query))
+	// 	{
+	// 		redirect($this->agent->referrer(), 'refresh');
+	// 	} else {
+	// 		$_SESSION['MEMBER_ID'] = $query[0]['staff_id'];
+	// 		$_SESSION['MEMBER_NAME'] = $query[0]['staff_fullname'];
+	// 		$_SESSION['MEMBER_TYPE'] = $query[0]['staff_type_id'];
+	// 		redirect('Front');
+	// 	}
+	// }
 
 
 public function memberLogout(){
@@ -41,7 +47,7 @@ public function memberLogout(){
 
 	public function logout(){
 		session_destroy();
-		redirect('Home/login');
+		redirect('Front');
 	}
 
 	public function userDelete(){

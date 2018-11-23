@@ -14,6 +14,34 @@ class Home extends CI_Controller {
 		$this->load->view($value['View']);
 		$this->load->view('back/template/footer');
 	}
+
+	public function index(){
+
+	}
+
+	public function news_insert(){
+		$value = array(
+			'Result' => array(
+				// 'antiques_store' => $antiques_store,
+				// 'usertype' => $usertype
+			),
+			'View' => 'back/news_insert'
+		);
+		$this->LoadPage($value);
+	}
+
+	public function news(){
+		$newslist = $this->Newsmodel->newslist();
+		$value = array(
+			'Result' => array(
+				'newslist' => $newslist,
+				// 'usertype' => $usertype
+			),
+			'View' => 'back/news_list'
+		);
+		$this->LoadPage($value);
+	}
+
 	public function admin(){
 		// $value = array(
 		// 	'Result' => array(
@@ -22,7 +50,7 @@ class Home extends CI_Controller {
 		// 	'View' => 'back/body'
 		// );
 		// $this->LoadPage($value);
-		redirect('Home/antiques');
+		redirect('Home/news');
 	}
 	function convert_time($strDate){
 		$strYear = date("Y",strtotime($strDate))+543;

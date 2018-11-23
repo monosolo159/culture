@@ -3,6 +3,8 @@
           <div class="list-group" style="margin-bottom:7%">
             <?php $menu = $this->Mediamodel->mediatype(); ?>
             <!-- <a href="<?php echo base_url('Front/antiques'); ?>" class="list-group-item list-group-item-action <?php if($this->uri->segment(2)=='antiques'){ echo 'active'; } ?>">หน้าแรก</a> -->
+            <a href="<?php echo base_url('Front/portal'); ?>" class="list-group-item list-group-item-action <?php if($this->uri->segment(2)=='portal'){ echo 'active'; } ?>">หน้าแรก</a>
+            <a href="<?php echo base_url('Front/news'); ?>" class="list-group-item list-group-item-action <?php if($this->uri->segment(2)=='news'){ echo 'active'; } ?>">ข่าวสาร</a>
             <a href="<?php echo base_url('Front/antiques'); ?>" class="list-group-item list-group-item-action <?php if($this->uri->segment(2)=='antiques'){ echo 'active'; } ?>">โบราณวัตถุและศิลปวัตถุ</a>
 
             <!-- <?php foreach ($menu as $key => $value): ?>

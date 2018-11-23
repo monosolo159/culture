@@ -62,8 +62,8 @@
               </div>
               <div class="col-md-6">
 
-                <?php if (empty($_SESSION['MEMBER_ID'])): ?>
-                  <?php echo form_open('Staff/member_login'); ?>
+                <?php if (empty($_SESSION['STAFF_ID'])): ?>
+                  <?php echo form_open('Staff/checkLogin'); ?>
                   <div class="row" style="padding-top:1%;padding-left:1% ">
 
                     <div class="col-md-5">
@@ -84,8 +84,8 @@
                     <div class="col-md-12">
 
                       <div class="float-right"><a href="<?php echo base_url('Staff/memberLogout') ?>"  class="btn btn-danger">ออกจากระบบ</a></div>
-                      <div class="float-right"><a href="<?php echo base_url('Front/profilePassword/'.$_SESSION['MEMBER_ID']) ?>"  class="btn btn-warning"> รหัสผ่าน </a> |&nbsp</div>
-                      <div class="float-right"><a href="<?php echo base_url('Front/profileEdit/'.$_SESSION['MEMBER_ID']) ?>"  class="btn btn-info"> ข้อมูลส่วนตัว </a> |&nbsp</div>
+                      <div class="float-right"><a href="<?php echo base_url('Front/profilePassword/'.$_SESSION['STAFF_ID']) ?>"  class="btn btn-warning"> รหัสผ่าน </a> |&nbsp</div>
+                      <div class="float-right"><a href="<?php echo base_url('Front/profileEdit/'.$_SESSION['STAFF_ID']) ?>"  class="btn btn-info"> ข้อมูลส่วนตัว </a> |&nbsp</div>
                       <!-- <div class="float-right"><a href="<?php echo base_url('Front/myMedia/'.$_SESSION['MEMBER_ID']) ?>"  class="btn btn-info"> สื่อของฉัน </a> |&nbsp</div> -->
                       <div class="btn-group float-right">
                           <!-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">สื่อของฉัน</button> -->
@@ -98,7 +98,7 @@
                             <a class="dropdown-item btn" href="<?php echo site_url('Front/mediaInsert/'); ?>">เพิ่มสื่อ</a>
                           </div>
                       </div>
-                      <div class="float-right"><a href=""  class="btn btn-default"> <?php echo $_SESSION['MEMBER_NAME'] ?> </a> |&nbsp</div>
+                      <div class="float-right"><a href=""  class="btn btn-default"> <?php echo $_SESSION['STAFF_NAME'] ?> </a> |&nbsp</div>
 
                     </div>
 
