@@ -25,7 +25,7 @@ class Front extends CI_Controller {
 		// 	'View' => 'front/body'
 		// );
 		// $this->LoadPage($value);
-		redirect('Front/antiques/');
+		redirect('Front/portal/');
 	}
 
 	public function portal(){
