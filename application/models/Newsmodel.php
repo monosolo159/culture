@@ -27,4 +27,12 @@ class Newsmodel extends CI_Model {
 	public function news_delete($id){
 		$this->db->where('news_id',$id)->delete('news');
 	}
+
+	public function newsselect($id){
+		return $this->db
+		->where('news_id',$id)
+		->join('staff','staff.staff_id = news.staff_id','left')
+		->get('news')
+		->result_array();
+	}
 }

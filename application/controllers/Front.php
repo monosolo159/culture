@@ -28,6 +28,44 @@ class Front extends CI_Controller {
 		redirect('Front/antiques/');
 	}
 
+	public function portal(){
+		$newslist = $this->Newsmodel->newslist();
+		$antiqueslist = $this->Antiquesmodel->antiqueslist();
+		$value = array(
+			'Result' => array(
+				'newslist' => $newslist,
+				'antiqueslist' => $antiqueslist
+			),
+			'View' => 'front/portal'
+		);
+		$this->LoadPage($value);
+	}
+
+	public function news(){
+		$newslist = $this->Newsmodel->newslist();
+		$value = array(
+			'Result' => array(
+				'newslist' => $newslist,
+				// 'usertype' => $usertype
+			),
+			'View' => 'front/news_list'
+		);
+		$this->LoadPage($value);
+	}
+
+	public function news_detail(){
+		$id = $this->uri->segment(3);
+		$news_detail = $this->Newsmodel->newsselect($id);
+		$value = array(
+			'Result' => array(
+				'news_detail' => $news_detail,
+				// 'usertype' => $usertype
+			),
+			'View' => 'front/news_detail'
+		);
+		$this->LoadPage($value);
+	}
+
 
 public function contact(){
 	$value = array(

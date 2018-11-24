@@ -42,6 +42,19 @@ class Home extends CI_Controller {
 		$this->LoadPage($value);
 	}
 
+	public function news_edit(){
+		$id = $this->uri->segment(3);
+		$news_edit = $this->Newsmodel->newsselect($id);
+		$value = array(
+			'Result' => array(
+				'news_edit' => $news_edit,
+				// 'usertype' => $usertype
+			),
+			'View' => 'back/news_edit'
+		);
+		$this->LoadPage($value);
+	}
+
 	public function admin(){
 		// $value = array(
 		// 	'Result' => array(
