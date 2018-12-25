@@ -98,6 +98,7 @@ public function contact(){
 		$antiques_one = $this->Antiquesmodel->antiques_one($id);
 		$mediatypeall = $this->Mediamodel->mediatype();
 		$medialist = $this->Mediamodel->medialist($id);
+		$this->Antiquesmodel->count_view($id);
 
 		$value = array(
 			'Result' => array(

@@ -54,7 +54,7 @@
                 <h3><?php echo $value['antiques_title']; ?></h3>
 
                 <?php echo substr_replace($value['antiques_detail'],"...",500); ?>
-                <a href="<?php echo site_url('Front/antiques_detail/'.$value['antiques_id']) ?>">อ่านต่อ</a>
+                <!-- <a href="<?php echo site_url('Front/antiques_detail/'.$value['antiques_id']) ?>">อ่านต่อ</a> -->
                 <a class="btn btn-sm btn-success" href="<?php echo base_url('Front/antiques_detail/'.$value['antiques_id']); ?>">อ่านต่อ</a>
 
               </div>

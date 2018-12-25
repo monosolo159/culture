@@ -11,7 +11,11 @@ class Antiquesmodel extends CI_Model {
 		$this->db->where('antiques_id',$input['antiques_id'])->update('antiques',$input);
 	}
 
-
+	public function count_view($id){
+		$query = $this->db->where('antiques_id',$id)->get('antiques')->result_array();
+		$update_db['antiques_view'] = $query[0]['antiques_view']+1;
+		$this->db->where('antiques_id',$id)->update('antiques',$update_db);
+	}
 
 	public function antiqueslist(){
 		return $this->db
@@ -27,7 +31,7 @@ class Antiquesmodel extends CI_Model {
 		// ->or_like('member_fname',$searchword)
 		// ->or_like('member_lname',$searchword)
 		// ->where('media.media_type_id',$id)
-		->order_by('antiques_date','desc')
+		->order_by('antiques_view','desc')
 		->join('antiques_store','antiques_store.antiques_store_id = antiques.antiques_store_id','left')
 		->join('staff','staff.staff_id = antiques.staff_id','left')
 		->get('antiques')
